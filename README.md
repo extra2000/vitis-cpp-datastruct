@@ -63,6 +63,9 @@ podman run -it --rm -v ${PWD}/vivado:${PWD}/vivado:ro -v ${PWD}/petalinux:${PWD}
 petalinux-config --get-hw-description ../../vivado/run/cpp-datastruct/
 ```
 
+Choose `EXT4` file system:
+* `Image Packaging Configuration` > `Root filesystem type` > `EXT4`.
+
 Execute the following command:
 ```
 petalinux-config -c rootfs

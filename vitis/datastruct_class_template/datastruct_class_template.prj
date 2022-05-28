@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="datastruct_class_template" location="../../../workspace/datastruct_class_template" platform="../../../workspace/cpp_datastruct_platform/export/cpp_datastruct_platform/cpp_datastruct_platform.xpfm" platformUID="xilinx:arty-z7-20::0.0(custom)" systemProject="cpp_datastruct_system" sysConfig="cpp_datastruct_platform" runtime="C/C++" cpu="linux_domain" cpuInstance="" os="linux" language="CPP">
+  <configuration name="Debug" id="xilinx.gnu.armv7.linux.exe.debug.394324861">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.linux.exe.release.646641740" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="empty_application"/>
+</sdkproject:SdkProject>
