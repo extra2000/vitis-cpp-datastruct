@@ -71,11 +71,12 @@ Execute the following command:
 petalinux-config -c rootfs
 ```
 
-Then, add the following packages:
+Then, set the following configurations:
 * All packages in `Filesystem Packages` > `libs` > `boost`
 * `Filesystem Packages` > `misc` > `gcc-runtime` > `libstdc++`
 * `Filesystem Packages` > `misc` > `packagegroup-core-tools-profile` > `packagegroup-core-tools-profile`
 * `Filesystem Packages` > `misc` > `packagegroup-core-tools-profile` > `packagegroup-core-tools-profile-dbg`
+* Set `Image Features` > `Init-manager` > `systemd`
 
 Build project:
 ```
