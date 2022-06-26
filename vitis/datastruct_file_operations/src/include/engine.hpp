@@ -27,7 +27,7 @@ public:
     void set_filename(const std::string& filename);
     boost::filesystem::path get_filename() const;
     void create_file();
-};
+}; // class MyEngine
 
 } // namespace myengine
 

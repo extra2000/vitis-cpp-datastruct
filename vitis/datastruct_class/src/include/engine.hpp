@@ -21,7 +21,7 @@ public:
     ~MyEngine();
     int get_id() const;
     void set_id(int id);
-};
+}; // class MyEngine
 
 } // namespace myengine
 

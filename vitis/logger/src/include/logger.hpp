@@ -57,7 +57,7 @@ public:
     LoggerConfig();
     ~LoggerConfig();
     void set_min_severity(const std::string& channel, severity_level level);
-};
+}; // class LoggerConfig
 
 class Logger
 {
@@ -83,7 +83,7 @@ public:
     void error(const boost::basic_format< char >& format);
     void fatal(const std::string& message);
     void fatal(const boost::basic_format< char >& format);
-};
+}; // class Logger
 
 std::ostream& operator<< (std::ostream& strm, severity_level level);
 
