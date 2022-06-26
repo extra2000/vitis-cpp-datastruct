@@ -8,7 +8,8 @@
 
 #include <logger.hpp>
 
-namespace myengine {
+namespace myengine
+{
 
 class MyEngine
 {

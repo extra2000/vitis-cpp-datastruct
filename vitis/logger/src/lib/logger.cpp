@@ -172,9 +172,12 @@ std::ostream& logger::operator<< (std::ostream& strm, logger::severity_level lev
         "fatal"
     };
 
-    if (static_cast< std::size_t >(level) < sizeof(strings) / sizeof(*strings)) {
+    if (static_cast< std::size_t >(level) < sizeof(strings) / sizeof(*strings))
+    {
         strm << strings[level];
-    } else {
+    }
+    else
+    {
         strm << static_cast< int >(level);
     }
 

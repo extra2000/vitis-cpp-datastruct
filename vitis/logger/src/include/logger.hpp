@@ -29,7 +29,8 @@ namespace keywords = boost::log::keywords;
 namespace attrs = boost::log::attributes;
 namespace sinks = boost::log::sinks;
 
-namespace logger {
+namespace logger
+{
 
 enum severity_level
 {

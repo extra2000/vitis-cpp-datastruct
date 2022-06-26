@@ -21,7 +21,8 @@ int main(int argc, char* argv[])
     po::store(po::parse_command_line(argc, argv, desc), vm);
     po::notify(vm);
 
-    if (vm.count("help")) {
+    if (vm.count("help"))
+    {
         std::cout << desc;
         return 0;
     }
@@ -30,7 +31,9 @@ int main(int argc, char* argv[])
     {
         logcfg.set_min_severity("main", logger::severity_level::debug);
         logcfg.set_min_severity("myengine", logger::severity_level::debug);
-    } else {
+    }
+    else
+    {
         logcfg.set_min_severity("main", logger::severity_level::info);
         logcfg.set_min_severity("myengine", logger::severity_level::info);
     }

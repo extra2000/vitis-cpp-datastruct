@@ -2,7 +2,8 @@
 #include <boost/format.hpp>
 #include <logger.hpp>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
     logger::LoggerConfig logcfg;
     logger::Logger log("main");
     logcfg.set_min_severity("main", logger::severity_level::trace);
@@ -25,7 +26,8 @@ int main(int argc, char* argv[]) {
     // Alternative way to insert 6 at the end
     counter_queue.insert(counter_queue.end(), 6);
 
-    for (auto customer_number : counter_queue) {
+    for (auto customer_number : counter_queue)
+    {
         log.info(boost::format("%d") % customer_number);
     }
 
