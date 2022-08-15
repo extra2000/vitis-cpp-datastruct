@@ -15,6 +15,7 @@
 		<project>datastruct_float_multiprecision</project>
 		<project>datastruct_async_timer</project>
 		<project>datastruct_thread_timer</project>
+		<project>datastruct_thread_timer_class</project>
 		<project>datastruct_async_signal</project>
 	</projects>
 	<buildSpec>

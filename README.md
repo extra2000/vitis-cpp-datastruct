@@ -170,6 +170,7 @@ Then, `Import Projects` > `Eclipse workspace or zip file`:
     * `datastruct_float_multiprecision`
     * `datastruct_linkedlist`
     * `datastruct_thread_timer`
+    * `datastruct_thread_timer_class`
     * `datastruct_vector`
     * `helloworld`
     * `logger`
