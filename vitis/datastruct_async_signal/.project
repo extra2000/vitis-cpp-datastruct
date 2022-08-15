@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>cpp_datastruct_system</name>
-	<comment></comment>
+	<name>datastruct_async_signal</name>
+	<comment>Created by Vitis v2022.1</comment>
 	<projects>
-		<project>datastruct_asm_inline</project>
-		<project>datastruct_class</project>
-		<project>datastruct_vector</project>
-		<project>helloworld</project>
-		<project>datastruct_file_operations</project>
-		<project>logger</project>
-		<project>datastruct_linkedlist</project>
-		<project>datastruct_class_template</project>
-		<project>datastruct_big_integer</project>
-		<project>datastruct_float_multiprecision</project>
-		<project>datastruct_async_signal</project>
+		<project>cpp_datastruct_platform</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -29,8 +19,7 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>com.xilinx.sdx.system.core.embedded</nature>
-		<nature>com.xilinx.sdx.system.systemprojectnature</nature>
+		<nature>com.xilinx.sdx.sdk.core.SdkProjectNature</nature>
 		<nature>org.eclipse.cdt.core.cnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.core.ccnature</nature>
