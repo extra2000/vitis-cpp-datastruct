@@ -162,6 +162,7 @@ Then, `Import Projects` > `Eclipse workspace or zip file`:
     * `cpp_datastruct_system`
     * `datastruct_asm_inline`
     * `datastruct_async_signal`
+    * `datastruct_async_timer`
     * `datastruct_big_integer`
     * `datastruct_class`
     * `datastruct_class_template`
