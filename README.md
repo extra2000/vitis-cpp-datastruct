@@ -185,6 +185,43 @@ disconnect
 ```
 
 
+## Building and Running with Podman
+
+Build image:
+```
+podman build -t extra2000/vitis-cpp-datastruct -f Dockerfile.x86_64
+```
+
+Create directory for building:
+```
+mkdir -pv build
+chcon -R -v -t container_file_t .
+```
+
+Build source:
+```
+podman run -it --rm -v ${PWD}/vitis:${PWD}/vitis:ro -v ${PWD}/build:${PWD}/build:rw --workdir ${PWD}/build extra2000/vitis-cpp-datastruct cmake ../vitis
+podman run -it --rm -v ${PWD}/vitis:${PWD}/vitis:ro -v ${PWD}/build:${PWD}/build:rw --workdir ${PWD}/build extra2000/vitis-cpp-datastruct make
+```
+
+Run:
+```
+podman run -it --rm -v ${PWD}/vitis:${PWD}/vitis:ro -v ${PWD}/build:${PWD}/build:rw --workdir ${PWD}/build extra2000/vitis-cpp-datastruct bash
+./datastruct_async_signal
+./datastruct_async_timer
+./datastruct_big_integer
+./datastruct_class
+./datastruct_class_template
+./datastruct_file_operations
+./datastruct_float_multiprecision
+./datastruct_linkedlist
+./datastruct_vector
+./datastruct_thread_timer
+./datastruct_thread_timer_class
+./helloworld
+```
+
+
 ## Known Issues
 
 * **Microsoft Windows 11 with Ubuntu 22.04 LTS WSL2**: Building on this platform only success until PetaLinux Section. At the moment we don't know how to prevent Vitis from creating paths mixed with forward and backward slash.

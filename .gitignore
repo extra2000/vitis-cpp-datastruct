@@ -11,4 +11,6 @@ vitis/*/_ide/
 workspace/*
 !workspace/.gitkeep
 
+build/*
+
 Packages
