@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.22)
 
 project(CPPDataStruct)
 
-find_package(Boost 1.74 COMPONENTS program_options REQUIRED)
+find_package(Boost 1.74 COMPONENTS log chrono thread program_options filesystem REQUIRED)
 
 # logger
 add_library(logger SHARED logger/src/lib/logger.cpp)
 target_compile_definitions(logger PRIVATE BOOST_ALL_DYN_LINK)
 target_include_directories(logger PRIVATE logger/src/include)
-target_link_libraries(logger boost_log)
+target_link_libraries(logger Boost::log)
 
 # datastruct_async_signal
 add_executable(datastruct_async_signal datastruct_async_signal/src/main.cpp)
@@ -16,7 +16,7 @@ target_compile_definitions(datastruct_async_signal PRIVATE BOOST_ALL_DYN_LINK)
 target_include_directories(datastruct_async_signal PRIVATE logger/src/include)
 target_link_libraries(datastruct_async_signal
     logger
-    boost_log
+    Boost::log
 )
 
 # datastruct_async_timer
@@ -25,7 +25,7 @@ target_compile_definitions(datastruct_async_timer PRIVATE BOOST_ALL_DYN_LINK)
 target_include_directories(datastruct_async_timer PRIVATE logger/src/include)
 target_link_libraries(datastruct_async_timer
     logger
-    boost_log
+    Boost::log
 )
 
 # datastruct_big_integer
@@ -70,8 +70,8 @@ target_include_directories(datastruct_file_operations PRIVATE
 )
 target_link_libraries(datastruct_file_operations
     logger
-    boost_program_options
-    boost_filesystem
+    Boost::program_options
+    Boost::filesystem
 )
 
 # datastruct_float_multiprecision
@@ -99,9 +99,9 @@ target_compile_definitions(datastruct_thread_timer PRIVATE BOOST_ALL_DYN_LINK)
 target_include_directories(datastruct_thread_timer PRIVATE logger/src/include)
 target_link_libraries(datastruct_thread_timer
     logger
-    boost_log
-    boost_chrono
-    boost_thread
+    Boost::log
+    Boost::chrono
+    Boost::thread
 )
 
 # datastruct_thread_timer_class
@@ -116,9 +116,9 @@ target_include_directories(datastruct_thread_timer_class PRIVATE
 )
 target_link_libraries(datastruct_thread_timer_class
     logger
-    boost_log
-    boost_chrono
-    boost_thread
+    Boost::log
+    Boost::chrono
+    Boost::thread
 )
 
 # datastruct_vector
