@@ -222,6 +222,62 @@ podman run -it --rm -v ${PWD}/vitis:${PWD}/vitis:ro -v ${PWD}/build:${PWD}/build
 ```
 
 
+## Building and Running with Microsoft Visual Studio Community 2022 on Windows 11
+
+Create `build` directory:
+```
+New-Item -ItemType Directory -Force -Path build
+```
+
+Clone `vcpkg` into `build\`:
+```
+git clone https://github.com/Microsoft/vcpkg.git build\vcpkg
+```
+
+*Note: Using [vcpkg](https://vcpkg.io/en/index.html) is recommended by [Microsoft](https://docs.microsoft.com/en-us/visualstudio/test/how-to-use-boost-test-for-cpp?view=vs-2022#install-boost).*
+
+`cd` into build:
+```
+cd build
+```
+
+Bootstrap `vcpkg`:
+```
+.\vcpkg\bootstrap-vcpkg.bat
+```
+
+Install `Boost` locally for this project:
+```
+.\vcpkg\vcpkg.exe install boost:x64-windows
+```
+
+Build project:
+```
+& 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe' -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE="../build/vcpkg/scripts/buildsystems/vcpkg.cmake" ../vitis
+```
+
+Compile:
+```
+& 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe' --build .
+```
+
+How to run:
+```
+.\Debug\helloworld.exe
+.\Debug\datastruct_async_signal.exe
+.\Debug\datastruct_async_timer.exe
+.\Debug\datastruct_big_integer.exe
+.\Debug\datastruct_class.exe
+.\Debug\datastruct_class_template.exe
+.\Debug\datastruct_file_operations.exe --cfgfile test.cfg
+.\Debug\datastruct_float_multiprecision.exe
+.\Debug\datastruct_linkedlist.exe
+.\Debug\datastruct_vector.exe
+.\Debug\datastruct_thread_timer.exe
+.\Debug\datastruct_thread_timer_class.exe
+.\Debug\helloworld.exe
+```
+
 ## Known Issues
 
 * **Microsoft Windows 11 with Ubuntu 22.04 LTS WSL2**: Building with Vitis doesn't work. We don't know how to prevent Vitis from creating paths that mixed with forward ("`/`") and backward ("`\`") slash.
