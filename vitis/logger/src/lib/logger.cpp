@@ -17,7 +17,7 @@ BOOST_LOG_ATTRIBUTE_KEYWORD(thread_id, "ThreadID", attrs::current_thread_id::val
 BOOST_LOG_ATTRIBUTE_KEYWORD(severity, "Severity", logger::severity_level)
 BOOST_LOG_ATTRIBUTE_KEYWORD(channel, "Channel", std::string)
 
-logger::LoggerConfig::LoggerConfig()
+DllExport logger::LoggerConfig::LoggerConfig()
 {
     logging::add_common_attributes();
 
@@ -34,7 +34,7 @@ logger::LoggerConfig::LoggerConfig()
     this->set_formatter();
 }
 
-logger::LoggerConfig::~LoggerConfig()
+DllExport logger::LoggerConfig::~LoggerConfig()
 {
     delete m_min_severity;
 }
@@ -52,7 +52,7 @@ void logger::LoggerConfig::set_formatter()
     m_sink->set_formatter(formatter);
 }
 
-void logger::LoggerConfig::set_min_severity(const std::string& channel, logger::severity_level level)
+DllExport void logger::LoggerConfig::set_min_severity(const std::string& channel, logger::severity_level level)
 {
     // Add minimum severity for a channel
     (*m_min_severity)[channel] = level;
@@ -61,20 +61,20 @@ void logger::LoggerConfig::set_min_severity(const std::string& channel, logger::
     m_sink->set_filter((*m_min_severity) | (severity >= logger::severity_level::fatal));
 }
 
-logger::Logger::Logger()
+DllExport logger::Logger::Logger()
 {
 }
 
-logger::Logger::Logger(const std::string& channel)
+DllExport logger::Logger::Logger(const std::string& channel)
 {
     this->init(channel);
 }
 
-logger::Logger::~Logger()
+DllExport logger::Logger::~Logger()
 {
 }
 
-void logger::Logger::init(const std::string& channel)
+DllExport void logger::Logger::init(const std::string& channel)
 {
     m_channel = channel;
     m_log = logger::logger_type(keywords::channel = m_channel);
@@ -100,62 +100,62 @@ void logger::Logger::write_log(logger::severity_level level, const std::string& 
     }
 }
 
-void logger::Logger::trace(const std::string& message)
+DllExport void logger::Logger::trace(const std::string& message)
 {
     this->write_log(logger::severity_level::trace, this->sanitize(message));
 }
 
-void logger::Logger::trace(const boost::basic_format< char >& format)
+DllExport void logger::Logger::trace(const boost::basic_format< char >& format)
 {
     this->write_log(logger::severity_level::trace, this->sanitize(format.str()));
 }
 
-void logger::Logger::debug(const std::string& message)
+DllExport void logger::Logger::debug(const std::string& message)
 {
     this->write_log(logger::severity_level::debug, this->sanitize(message));
 }
 
-void logger::Logger::debug(const boost::basic_format< char >& format)
+DllExport void logger::Logger::debug(const boost::basic_format< char >& format)
 {
     this->write_log(logger::severity_level::debug, this->sanitize(format.str()));
 }
 
-void logger::Logger::info(const std::string& message)
+DllExport void logger::Logger::info(const std::string& message)
 {
     this->write_log(logger::severity_level::info, this->sanitize(message));
 }
 
-void logger::Logger::info(const boost::basic_format< char >& format)
+DllExport void logger::Logger::info(const boost::basic_format< char >& format)
 {
     this->write_log(logger::severity_level::info, this->sanitize(format.str()));
 }
 
-void logger::Logger::warning(const std::string& message)
+DllExport void logger::Logger::warning(const std::string& message)
 {
     this->write_log(logger::severity_level::warning, this->sanitize(message));
 }
 
-void logger::Logger::warning(const boost::basic_format< char >& format)
+DllExport void logger::Logger::warning(const boost::basic_format< char >& format)
 {
     this->write_log(logger::severity_level::warning, this->sanitize(format.str()));
 }
 
-void logger::Logger::error(const std::string& message)
+DllExport void logger::Logger::error(const std::string& message)
 {
     this->write_log(logger::severity_level::error, this->sanitize(message));
 }
 
-void logger::Logger::error(const boost::basic_format< char >& format)
+DllExport void logger::Logger::error(const boost::basic_format< char >& format)
 {
     this->write_log(logger::severity_level::error, this->sanitize(format.str()));
 }
 
-void logger::Logger::fatal(const std::string& message)
+DllExport void logger::Logger::fatal(const std::string& message)
 {
     this->write_log(logger::severity_level::fatal, this->sanitize(message));
 }
 
-void logger::Logger::fatal(const boost::basic_format< char >& format)
+DllExport void logger::Logger::fatal(const boost::basic_format< char >& format)
 {
     this->write_log(logger::severity_level::fatal, this->sanitize(format.str()));
 }

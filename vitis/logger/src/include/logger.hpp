@@ -6,6 +6,12 @@
 #define INCLUDE_LOGGER_HPP_
 
 
+#ifdef _WIN32
+#define DllExport __declspec( dllexport )
+#else
+#define DllExport
+#endif
+
 #include <cstddef>
 #include <boost/format.hpp>
 #include <boost/core/null_deleter.hpp>
@@ -54,9 +60,9 @@ protected:
     min_severity_filter *m_min_severity;
     void set_formatter();
 public:
-    LoggerConfig();
-    ~LoggerConfig();
-    void set_min_severity(const std::string& channel, severity_level level);
+    DllExport LoggerConfig();
+    DllExport ~LoggerConfig();
+    DllExport void set_min_severity(const std::string& channel, severity_level level);
 }; // class LoggerConfig
 
 class Logger
@@ -67,22 +73,22 @@ protected:
     std::string sanitize(const std::string& message);
     void write_log(severity_level level, const std::string& message);
 public:
-    Logger();
-    Logger(const std::string& channel);
-    ~Logger();
-    void init(const std::string& channel);
-    void trace(const std::string& message);
-    void trace(const boost::basic_format< char >& format);
-    void debug(const std::string& message);
-    void debug(const boost::basic_format< char >& format);
-    void info(const std::string& message);
-    void info(const boost::basic_format< char >& format);
-    void warning(const std::string& message);
-    void warning(const boost::basic_format< char >& format);
-    void error(const std::string& message);
-    void error(const boost::basic_format< char >& format);
-    void fatal(const std::string& message);
-    void fatal(const boost::basic_format< char >& format);
+    DllExport Logger();
+    DllExport Logger(const std::string& channel);
+    DllExport ~Logger();
+    DllExport void init(const std::string& channel);
+    DllExport void trace(const std::string& message);
+    DllExport void trace(const boost::basic_format< char >& format);
+    DllExport void debug(const std::string& message);
+    DllExport void debug(const boost::basic_format< char >& format);
+    DllExport void info(const std::string& message);
+    DllExport void info(const boost::basic_format< char >& format);
+    DllExport void warning(const std::string& message);
+    DllExport void warning(const boost::basic_format< char >& format);
+    DllExport void error(const std::string& message);
+    DllExport void error(const boost::basic_format< char >& format);
+    DllExport void fatal(const std::string& message);
+    DllExport void fatal(const boost::basic_format< char >& format);
 }; // class Logger
 
 std::ostream& operator<< (std::ostream& strm, severity_level level);
