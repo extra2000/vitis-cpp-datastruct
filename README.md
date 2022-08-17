@@ -224,4 +224,4 @@ podman run -it --rm -v ${PWD}/vitis:${PWD}/vitis:ro -v ${PWD}/build:${PWD}/build
 
 ## Known Issues
 
-* **Microsoft Windows 11 with Ubuntu 22.04 LTS WSL2**: Building on this platform will only success up to PetaLinux Section. At the moment we don't know how to prevent Vitis from creating paths that mixed with forward and backward slash.
+* **Microsoft Windows 11 with Ubuntu 22.04 LTS WSL2**: Building with Vitis doesn't work. We don't know how to prevent Vitis from creating paths that mixed with forward ("`/`") and backward ("`\`") slash.
