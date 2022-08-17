@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.2.0](https://github.com/extra2000/vitis-cpp-datastruct/compare/v1.1.0...v1.2.0) (2022-08-17)
+
+
+### Features
+
+* **CMakeLists.txt:** add support for Visual Studio 2022 on Windows 11 ([46e9948](https://github.com/extra2000/vitis-cpp-datastruct/commit/46e994838898369264543db9313a64f4aedff9be))
+* **logger:** prefix public access with `DllExport` which is required to support Visual Studio 2022 on Windows 11 ([9fce30d](https://github.com/extra2000/vitis-cpp-datastruct/commit/9fce30d15acd4482cc5c3942b277986ee59b2fa7))
+
+
+### Documentations
+
+* **README:** add AppVeyor badge ([40fc236](https://github.com/extra2000/vitis-cpp-datastruct/commit/40fc236d5b46bbc371e46bff8adf926a4420f283))
+* **README:** add instructions to build with Visual Studio 2022 on Windows 11 ([0801d54](https://github.com/extra2000/vitis-cpp-datastruct/commit/0801d54e3aa15da01287ba7496c2e5d8af95bcba))
+* **README:** add missing `--cfgfile test.cfg` to `./datastruct_file_operations` ([2493680](https://github.com/extra2000/vitis-cpp-datastruct/commit/24936802bd82a4b1e4b47b9d1a89c9ad8145806f))
+* **README:** improve `Known Issues` explanation ([46a1751](https://github.com/extra2000/vitis-cpp-datastruct/commit/46a1751fc5c7f52d2077c836e2d48e50c8c4c2fb))
+
+
+### Code Refactoring
+
+* **.gitignore:** ignore `.vs` directory ([fe8438c](https://github.com/extra2000/vitis-cpp-datastruct/commit/fe8438cddc32ecf6d4c96457369702b79309f024))
+* **CMakeLists.txt:** prefix libraries with `Boost::` ([9cf1cfe](https://github.com/extra2000/vitis-cpp-datastruct/commit/9cf1cfef3df0f808a8e9d8ef03f7978d5ae37025))
+
+
+### Fixes
+
+* **datastruct_file_operations:** fix "'ofstream' is not a member of 'boost::filesystem'" ([6fbbc5c](https://github.com/extra2000/vitis-cpp-datastruct/commit/6fbbc5c6b7b67f4c0fcbdfc56e40998c3e68fe33))
+
 ## [1.1.0](https://github.com/extra2000/vitis-cpp-datastruct/compare/v1.0.0...v1.1.0) (2022-08-15)
 
 
