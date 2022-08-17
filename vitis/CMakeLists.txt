@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.22)
 
 project(CPPDataStruct)
 
+if(WIN32)
+    include(GenerateExportHeader)
+endif()
+
 find_package(Boost 1.74 COMPONENTS log chrono thread program_options filesystem REQUIRED)
 
 # logger
@@ -9,6 +13,9 @@ add_library(logger SHARED logger/src/lib/logger.cpp)
 target_compile_definitions(logger PRIVATE BOOST_ALL_DYN_LINK)
 target_include_directories(logger PRIVATE logger/src/include)
 target_link_libraries(logger Boost::log)
+if(WIN32)
+    generate_export_header(logger)
+endif()
 
 # datastruct_async_signal
 add_executable(datastruct_async_signal datastruct_async_signal/src/main.cpp)
@@ -68,11 +75,20 @@ target_include_directories(datastruct_file_operations PRIVATE
     logger/src/include
     datastruct_file_operations/src/include
 )
-target_link_libraries(datastruct_file_operations
-    logger
-    Boost::program_options
-    Boost::filesystem
-)
+if(WIN32)
+    target_link_libraries(datastruct_file_operations
+        logger
+        Boost::program_options
+        Boost::filesystem
+        bcrypt
+    )
+else()
+    target_link_libraries(datastruct_file_operations
+        logger
+        Boost::program_options
+        Boost::filesystem
+    )
+endif()
 
 # datastruct_float_multiprecision
 add_executable(datastruct_float_multiprecision datastruct_float_multiprecision/src/main.cpp)
@@ -91,7 +107,11 @@ target_include_directories(datastruct_linkedlist PRIVATE
     logger/src/include
     datastruct_linkedlist/src/include
 )
-target_link_libraries(datastruct_linkedlist logger)
+if(WIN32)
+    target_link_libraries(datastruct_linkedlist logger bcrypt)
+else()
+    target_link_libraries(datastruct_linkedlist logger)
+endif()
 
 # datastruct_thread_timer
 add_executable(datastruct_thread_timer datastruct_thread_timer/src/main.cpp)
