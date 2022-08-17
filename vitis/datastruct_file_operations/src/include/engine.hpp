@@ -10,6 +10,7 @@
 #define BOOST_FILESYSTEM_NO_DEPRECATED
 
 #include <boost/filesystem.hpp>
+#include <boost/filesystem/fstream.hpp>
 #include <logger.hpp>
 
 namespace myengine
