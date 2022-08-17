@@ -212,7 +212,7 @@ podman run -it --rm -v ${PWD}/vitis:${PWD}/vitis:ro -v ${PWD}/build:${PWD}/build
 ./datastruct_big_integer
 ./datastruct_class
 ./datastruct_class_template
-./datastruct_file_operations
+./datastruct_file_operations --cfgfile test.cfg
 ./datastruct_float_multiprecision
 ./datastruct_linkedlist
 ./datastruct_vector
