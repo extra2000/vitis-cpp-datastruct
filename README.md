@@ -224,6 +224,8 @@ podman run -it --rm -v ${PWD}/vitis:${PWD}/vitis:ro -v ${PWD}/build:${PWD}/build
 
 ## Building and Running with Microsoft Visual Studio Community 2022 on Windows 11
 
+Launch `Developer PowerShell for VS 2022` and follow instructions below.
+
 Create `build` directory:
 ```
 New-Item -ItemType Directory -Force -Path build
@@ -253,12 +255,12 @@ Install `Boost` locally for this project:
 
 Build project:
 ```
-& 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe' -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE="../build/vcpkg/scripts/buildsystems/vcpkg.cmake" ../vitis
+cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE="../build/vcpkg/scripts/buildsystems/vcpkg.cmake" ../vitis
 ```
 
 Compile:
 ```
-& 'C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe' --build .
+cmake --build .
 ```
 
 How to run:
