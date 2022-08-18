@@ -265,7 +265,6 @@ cmake --build .
 
 How to run:
 ```
-.\Debug\helloworld.exe
 .\Debug\datastruct_async_signal.exe
 .\Debug\datastruct_async_timer.exe
 .\Debug\datastruct_big_integer.exe
