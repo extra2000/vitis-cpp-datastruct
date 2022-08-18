@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/extra2000/vitis-cpp-datastruct/compare/v1.2.0...v1.2.1) (2022-08-18)
+
+
+### Documentations
+
+* **README:** remove duplicated `.\Debug\helloworld.exe` ([df2c990](https://github.com/extra2000/vitis-cpp-datastruct/commit/df2c99019645f4d42a2a3a0537de1e24bebc6da2))
+* **README:** simplify `cmake.exe` path by using `Developer PowerShell for VS 2022` ([d737980](https://github.com/extra2000/vitis-cpp-datastruct/commit/d737980ca0b2b3c109cb49d38b93fb847439922f))
+
 ## [1.2.0](https://github.com/extra2000/vitis-cpp-datastruct/compare/v1.1.0...v1.2.0) (2022-08-17)
 
 
