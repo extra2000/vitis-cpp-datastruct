@@ -27,6 +27,8 @@
       <applications name="logger" domainName="linux_domain" domainPrettyName="linux on ps7_cortexa9" appBuildConfig="Debug"/>
       <applications name="datastruct_linkedlist" domainName="linux_domain" domainPrettyName="linux on ps7_cortexa9" appBuildConfig="Debug"/>
       <applications name="datastruct_class_template" domainName="linux_domain" domainPrettyName="linux on ps7_cortexa9" appBuildConfig="Debug"/>
+      <applications name="datastruct_big_integer" domainName="linux_domain" domainPrettyName="linux on ps7_cortexa9" appBuildConfig="Debug"/>
+      <applications name="datastruct_float_multiprecision" domainName="linux_domain" domainPrettyName="linux on ps7_cortexa9" appBuildConfig="Debug"/>
       <applications name="datastruct_async_timer" domainName="linux_domain" domainPrettyName="linux on ps7_cortexa9" appBuildConfig="Debug"/>
       <applications name="datastruct_thread_timer" domainName="linux_domain" domainPrettyName="linux on ps7_cortexa9" appBuildConfig="Debug"/>
       <applications name="datastruct_thread_timer_class" domainName="linux_domain" domainPrettyName="linux on ps7_cortexa9" appBuildConfig="Debug"/>
