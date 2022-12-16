@@ -76,6 +76,9 @@ Then, set the following configurations:
 * `Filesystem Packages` > `misc` > `gcc-runtime` > `libstdc++`
 * `Filesystem Packages` > `misc` > `packagegroup-core-tools-profile` > `packagegroup-core-tools-profile`
 * `Filesystem Packages` > `misc` > `packagegroup-core-tools-profile` > `packagegroup-core-tools-profile-dbg`
+* Disable `Filesystem Packages` > `misc` > `packagegroup-core-ssh-dropbear` > `packagegroup-core-ssh-dropbear`
+* Disable `Image Features` > `ssh-server-dropbear`
+* Enable `Image Features` > `ssh-server-openssh`
 * Set `Image Features` > `Init-manager` > `systemd`
 
 Build project:
