@@ -169,11 +169,13 @@ Then, `Import Projects` > `Eclipse workspace or zip file`:
 * Options:
     * Do not copy projects into workspace.
 
-Uploading shared library:
+Uploading shared library by executing `xsct` command from this project root directory:
 ```
+flatpak run --command=xsct com.github.corna.Vivado
 connect -host 127.0.0.1 -port 1534
-tfile copy -from-host ../vitis/logger/Debug/liblogger.so /usr/lib/liblogger.so
+tfile copy -from-host ./vitis/logger/Debug/liblogger.so /usr/lib/liblogger.so
 disconnect
+exit
 ```
 
 
