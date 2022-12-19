@@ -143,14 +143,19 @@ After QEMU has halted, terminate QEMU console with `CTRL + A` and then type `X`.
 
 ## Creating Vitis Project
 
-`cd` into ./workspace:
+From the project root directory, `cd` into `./vitis`:
 ```
-cd workspace
+cd ./vitis
 ```
 
 Generate platform:
 ```
-flatpak run --command=xsct com.github.corna.Vivado ../vitis/platform/arty-z7-20.tcl
+flatpak run --command=xsct com.github.corna.Vivado ./scripts/arty-z7-20.tcl
+```
+
+From the project root directory, `cd` into `./workspace`:
+```
+cd ./workspace
 ```
 
 Launch Vitis:
@@ -159,24 +164,8 @@ flatpak run --command=vitis com.github.corna.Vivado -workspace .
 ```
 
 Then, `Import Projects` > `Eclipse workspace or zip file`:
-* Select root directory: `/path/to/vitis-cpp-datastruct`.
-* Projects:
-    * `cpp_datastruct_platform`
-    * `cpp_datastruct_system`
-    * `datastruct_asm_inline`
-    * `datastruct_async_signal`
-    * `datastruct_async_timer`
-    * `datastruct_big_integer`
-    * `datastruct_class`
-    * `datastruct_class_template`
-    * `datastruct_file_operations`
-    * `datastruct_float_multiprecision`
-    * `datastruct_linkedlist`
-    * `datastruct_thread_timer`
-    * `datastruct_thread_timer_class`
-    * `datastruct_vector`
-    * `helloworld`
-    * `logger`
+* Select root directory: `/path/to/vitis-cpp-datastruct/vitis`.
+* Check all projects.
 * Options:
     * Do not copy projects into workspace.
 
