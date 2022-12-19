@@ -1,19 +1,19 @@
 .Xil
 
-petalinux/*
-!petalinux/.gitkeep
+/petalinux/*
+!/petalinux/.gitkeep
 
-vivado/run/*
-!vivado/run/.gitkeep
+/vivado/run/*
+!/vivado/run/.gitkeep
 
-vitis/*/_ide/
+/vitis/*/_ide/
 /vitis/*_platform
 
-workspace/*
-!workspace/.gitkeep
+/workspace/*
+!/workspace/.gitkeep
 
-build/*
+/build/*
 
-Packages
+/Packages
 
-.vs
+/.vs
