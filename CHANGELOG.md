@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.0.0](https://github.com/extra2000/vitis-cpp-datastruct/compare/v1.2.1...v2.0.0) (2022-12-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* Platform has been moved into `./vitis/`
+
+### Continuous Integrations
+
+* add Github Action ([bb752d2](https://github.com/extra2000/vitis-cpp-datastruct/commit/bb752d282c538ff28b4948b27c41570b85e3054d))
+* remove AppVeyor ([1856e42](https://github.com/extra2000/vitis-cpp-datastruct/commit/1856e42d04e4066e5522636f527e6cc622ffe029))
+
+
+### Fixes
+
+* **vitis:** add missing `datastruct_float_multiprecision` project ([9dcafea](https://github.com/extra2000/vitis-cpp-datastruct/commit/9dcafea577e16eca9d53dc842bf0717254cef630))
+
+
+### Code Refactoring
+
+* generated platform has been moved into `./vitis/` to simplify project workflow ([c8220b7](https://github.com/extra2000/vitis-cpp-datastruct/commit/c8220b79d9306a1e78b969868cafd845247bd40a))
+* **gitignore:** improve paths ([869ad2e](https://github.com/extra2000/vitis-cpp-datastruct/commit/869ad2ecf2d800e0bf76d9e4f59faa974188579a))
+
+
+### Documentations
+
+* **README:** add `xsct` command ([802d689](https://github.com/extra2000/vitis-cpp-datastruct/commit/802d68926cdc7f9107b1448b54a488c2a69b9670))
+* **README:** add instructions to replace Dropbear with OpenSSH ([4deac18](https://github.com/extra2000/vitis-cpp-datastruct/commit/4deac18e013d9ace1a407216eab67b3eb0a4d80b))
+* **README:** remove AppVeyor badge ([5fecb09](https://github.com/extra2000/vitis-cpp-datastruct/commit/5fecb09f966d6e2083319cf29ccf1e53fb01a321))
+
 ## [1.2.1](https://github.com/extra2000/vitis-cpp-datastruct/compare/v1.2.0...v1.2.1) (2022-08-18)
 
 
