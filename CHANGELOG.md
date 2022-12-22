@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.0.0](https://github.com/extra2000/vitis-cpp-datastruct/compare/v2.0.0...v3.0.0) (2022-12-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* **vitis:** `vitis/` has been moved to [extra2000/datastruct-cpp](https://github.com/extra2000/datastruct-cpp)
+
+### Code Refactoring
+
+* **dockerfile:** remove unused Dockerfile ([0aeb5aa](https://github.com/extra2000/vitis-cpp-datastruct/commit/0aeb5aafe0c2fb00107c0ee8a2c48f6808ed64d2))
+* **vitis:** move `vitis/` to [extra2000/datastruct-cpp](https://github.com/extra2000/datastruct-cpp) ([d87cf7b](https://github.com/extra2000/vitis-cpp-datastruct/commit/d87cf7bc09aa203e0d3aece23d8e2a53c3c31e54))
+
+
+### Documentations
+
+* **README:** add `dnf` package management ([3d30b3c](https://github.com/extra2000/vitis-cpp-datastruct/commit/3d30b3cc63c318dafc151915cd7fdaa67cffd4e4))
+* **README:** update instructions required for [extra2000/datastruct-cpp](https://github.com/extra2000/datastruct-cpp) ([8de8934](https://github.com/extra2000/vitis-cpp-datastruct/commit/8de89349c64d64c30b729dae3efbf1e71ac76bf5))
+
 ## [2.0.0](https://github.com/extra2000/vitis-cpp-datastruct/compare/v1.2.1...v2.0.0) (2022-12-20)
 
 
