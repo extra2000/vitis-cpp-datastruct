@@ -109,11 +109,6 @@ Exit from the container:
 exit
 ```
 
-Restore ownership:
-```
-podman unshare chown -R 0:0 ./petalinux/
-```
-
 Create SD card image.
 
 
@@ -144,11 +139,45 @@ poweroff
 After QEMU has halted, terminate QEMU console with `CTRL + A` and then type `X`.
 
 
+## Building Application
+
+Ensure host has full access to applications:
+```
+podman unshare chown -R 0:0 ./petalinux/arty-z7-20/project-spec/meta-user/recipes-apps
+podman unshare chown -R 0:0 ./petalinux/arty-z7-20/project-spec/meta-user/conf/user-rootfsconfig
+```
+
+Clone applications:
+```
+git clone https://github.com/extra2000/datastruct-cpp.git ./petalinux/arty-z7-20/project-spec/meta-user/recipes-apps/helloworld
+```
+
+Build the application into RPM files:
+```
+petalinux-build -c datastruct-cpp
+```
+
+Upload the RPM files `petalinux/arty-z7-20/build/tmp/deploy/rpm/cortexa9t2hf_neon/datastruct-cpp-*.rpm` to the board and then install the application using `dnf` command:
+```
+sudo dnf install ./datastruct-cpp-*.rpm
+```
+
+To uninstall the application:
+```
+sudo dnf remove datastruct-cpp{,-dbg,-dev,-lic,-src}
+```
+
+
 ## Creating Vitis Project
 
-From the project root directory, `cd` into `./vitis`:
+Restore host's ownership for Petalinux images files. This is required for Vitis to create project:
 ```
-cd ./vitis
+podman unshare chown -R 0:0 ./petalinux/arty-z7-20/images
+```
+
+From the project root directory, `cd` into `petalinux/arty-z7-20/project-spec/meta-user/recipes-apps/datastruct-cpp/files`:
+```
+cd ./petalinux/arty-z7-20/project-spec/meta-user/recipes-apps/datastruct-cpp/files
 ```
 
 Generate platform:
@@ -167,12 +196,12 @@ flatpak run --command=vitis com.github.corna.Vivado -workspace .
 ```
 
 Then, `Import Projects` > `Eclipse workspace or zip file`:
-* Select root directory: `/path/to/vitis-cpp-datastruct/vitis`.
+* Select root directory: `/path/to/vitis-cpp-datastruct/petalinux/arty-z7-20/project-spec/meta-user/recipes-apps/datastruct-cpp`.
 * Check all projects.
 * Options:
     * Do not copy projects into workspace.
 
-Uploading shared library by executing `xsct` command from this project root directory:
+Uploading shared library by executing `xsct` command from this project root directory (*Warning: May conflict with `datastruct-cpp-1.0-r0.0.cortexa9t2hf_neon.rpm`*):
 ```
 flatpak run --command=xsct com.github.corna.Vivado
 connect -host 127.0.0.1 -port 1534
@@ -181,100 +210,6 @@ disconnect
 exit
 ```
 
-
-## Building and Running with Podman
-
-Build image:
-```
-podman build -t extra2000/vitis-cpp-datastruct -f Dockerfile.x86_64
-```
-
-Create directory for building:
-```
-mkdir -pv build
-chcon -R -v -t container_file_t .
-```
-
-Build source:
-```
-podman run -it --rm -v ${PWD}/vitis:${PWD}/vitis:ro -v ${PWD}/build:${PWD}/build:rw --workdir ${PWD}/build extra2000/vitis-cpp-datastruct cmake ../vitis
-podman run -it --rm -v ${PWD}/vitis:${PWD}/vitis:ro -v ${PWD}/build:${PWD}/build:rw --workdir ${PWD}/build extra2000/vitis-cpp-datastruct make
-```
-
-Run:
-```
-podman run -it --rm -v ${PWD}/vitis:${PWD}/vitis:ro -v ${PWD}/build:${PWD}/build:rw --workdir ${PWD}/build extra2000/vitis-cpp-datastruct bash
-./datastruct_async_signal
-./datastruct_async_timer
-./datastruct_big_integer
-./datastruct_class
-./datastruct_class_template
-./datastruct_file_operations --cfgfile test.cfg
-./datastruct_float_multiprecision
-./datastruct_linkedlist
-./datastruct_vector
-./datastruct_thread_timer
-./datastruct_thread_timer_class
-./helloworld
-```
-
-
-## Building and Running with Microsoft Visual Studio Community 2022 on Windows 11
-
-Launch `Developer PowerShell for VS 2022` and follow instructions below.
-
-Create `build` directory:
-```
-New-Item -ItemType Directory -Force -Path build
-```
-
-Clone `vcpkg` into `build\`:
-```
-git clone https://github.com/Microsoft/vcpkg.git build\vcpkg
-```
-
-*Note: Using [vcpkg](https://vcpkg.io/en/index.html) is recommended by [Microsoft](https://docs.microsoft.com/en-us/visualstudio/test/how-to-use-boost-test-for-cpp?view=vs-2022#install-boost).*
-
-`cd` into build:
-```
-cd build
-```
-
-Bootstrap `vcpkg`:
-```
-.\vcpkg\bootstrap-vcpkg.bat
-```
-
-Install `Boost` locally for this project:
-```
-.\vcpkg\vcpkg.exe install boost:x64-windows
-```
-
-Build project:
-```
-cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE="../build/vcpkg/scripts/buildsystems/vcpkg.cmake" ../vitis
-```
-
-Compile:
-```
-cmake --build .
-```
-
-How to run:
-```
-.\Debug\datastruct_async_signal.exe
-.\Debug\datastruct_async_timer.exe
-.\Debug\datastruct_big_integer.exe
-.\Debug\datastruct_class.exe
-.\Debug\datastruct_class_template.exe
-.\Debug\datastruct_file_operations.exe --cfgfile test.cfg
-.\Debug\datastruct_float_multiprecision.exe
-.\Debug\datastruct_linkedlist.exe
-.\Debug\datastruct_vector.exe
-.\Debug\datastruct_thread_timer.exe
-.\Debug\datastruct_thread_timer_class.exe
-.\Debug\helloworld.exe
-```
 
 ## Known Issues
 
