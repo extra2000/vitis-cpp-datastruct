@@ -79,6 +79,9 @@ Then, set the following configurations:
 * Disable `Filesystem Packages` > `misc` > `packagegroup-core-ssh-dropbear` > `packagegroup-core-ssh-dropbear`
 * Disable `Image Features` > `ssh-server-dropbear`
 * Enable `Image Features` > `ssh-server-openssh`
+* Enable `Image Features` > `package-management`
+* Disable `Image Features` > `package-management` > `package-feed-uris`
+* Disable `Image Features` > `package-management` > `package-feed-archs`
 * Set `Image Features` > `Init-manager` > `systemd`
 
 Build project:
