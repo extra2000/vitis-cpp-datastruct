@@ -149,7 +149,7 @@ podman unshare chown -R 0:0 ./petalinux/arty-z7-20/project-spec/meta-user/conf/u
 
 Clone applications:
 ```
-git clone https://github.com/extra2000/datastruct-cpp.git ./petalinux/arty-z7-20/project-spec/meta-user/recipes-apps/helloworld
+git clone https://github.com/extra2000/datastruct-cpp.git ./petalinux/arty-z7-20/project-spec/meta-user/recipes-apps/datastruct-cpp
 ```
 
 Build the application into RPM files:
