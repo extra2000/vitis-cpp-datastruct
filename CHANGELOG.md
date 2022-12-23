@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/extra2000/vitis-cpp-datastruct/compare/v3.0.0...v3.0.1) (2022-12-23)
+
+
+### Documentations
+
+* **README:** fix `git clone` typo for `datastruct-cpp` ([c401469](https://github.com/extra2000/vitis-cpp-datastruct/commit/c401469858a46a71c8b06dffae7ec263a4bb9b21))
+
 ## [3.0.0](https://github.com/extra2000/vitis-cpp-datastruct/compare/v2.0.0...v3.0.0) (2022-12-22)
 
 
